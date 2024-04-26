@@ -1,26 +1,25 @@
 version: '3.5'
 
 services:
-  app:
+  cardEncryptor:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: 'app'
+    container_name: 'card_encryptor'
     restart: always
     ports:
-      - 3000:3000
+      - 3001:3000
     env_file:
       - .env
     volumes:
-      - ./:/app
+      - ./:/card_encryptor
     command: bash -c "npm install && npm run build && npx prisma generate && npx prisma migrate deploy && npx prisma db seed && npm start"
-    user: "1000:1000"
     depends_on:
       - postgresql
 
   postgresql:
     image: postgres:14
-    container_name: postgresql
+    container_name: card_encryptor_db
     env_file:
       - .env
     ports:
@@ -30,6 +29,7 @@ services:
 
 volumes:
   postgres-data:
+
 
 networks:
   default:
