@@ -4,6 +4,7 @@ const { randomUUID } = require('crypto')
 const prismaClient = new PrismaClient()
 
 const main = async () => {
+  await prismaClient.applications.deleteMany({})
   await prismaClient.applications.create({
     data: {
         id: randomUUID(),
