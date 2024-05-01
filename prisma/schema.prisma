@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_LOCAL_URL")
+  url      = env("DATABASE_URL")
 }
 
 model Cards {
@@ -29,6 +29,7 @@ model Applications {
 
 model Request {
   id        String    @id
+  appId     String?
   path      String
   method    String
   input     String    @db.Text

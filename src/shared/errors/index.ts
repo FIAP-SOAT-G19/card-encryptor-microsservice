@@ -20,3 +20,17 @@ export class ServerError extends Error {
     this.stack = error?.stack
   }
 }
+
+export class ForbiddenError extends Error {
+  constructor () {
+    super('Forbidden: Headers is required')
+    this.name = 'ForbiddenError'
+  }
+}
+
+export class UnauthorizedError extends Error {
+  constructor () {
+    super('Unauthorized')
+    this.name = 'UnauthorizedError'
+  }
+}
