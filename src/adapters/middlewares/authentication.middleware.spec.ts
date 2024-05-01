@@ -2,6 +2,7 @@ import { mock } from 'jest-mock-extended'
 import { HttpRequest } from '../controllers/controller.interface'
 import { AuthenticationMiddleware } from './authentication.middleware'
 import { AuthenticationMiddlewareGatewayInterface } from '../gateways/authentication-middleware/authenticaton-middleware.gateway.interface'
+import { ForbiddenError, UnauthorizedError } from '@/shared/errors'
 
 const gateway = mock<AuthenticationMiddlewareGatewayInterface>()
 const fakeApp = {
@@ -19,8 +20,8 @@ describe('AuthenticationMiddleware', () => {
     sut = new AuthenticationMiddleware(gateway)
     input = {
       headers: {
-        appId: 'anyAppId',
-        secretKey: 'anySecretKey'
+        appid: 'anyAppId',
+        secretkey: 'anySecretKey'
       }
     }
     gateway.getApplicationByAppIdAndSecretKey.mockResolvedValue(fakeApp)
@@ -31,7 +32,7 @@ describe('AuthenticationMiddleware', () => {
 
     const output = await sut.execute(input)
 
-    expect(output).toEqual({ statusCode: 403, body: 'Forbidden: JWT is required' })
+    expect(output).toEqual({ statusCode: 403, body: new ForbiddenError() })
   })
 
   test('should return 403 if Auhtorization header is falsy', async () => {
@@ -39,7 +40,7 @@ describe('AuthenticationMiddleware', () => {
 
     const output = await sut.execute(input)
 
-    expect(output).toEqual({ statusCode: 403, body: 'Forbidden: JWT is required' })
+    expect(output).toEqual({ statusCode: 403, body: new ForbiddenError() })
   })
 
   test('should call gateway.getApplicationByAppIdAndSecretKey once and with correct values', async () => {
@@ -54,7 +55,7 @@ describe('AuthenticationMiddleware', () => {
 
     const output = await sut.execute(input)
 
-    expect(output).toEqual({ statusCode: 401, body: 'Unauthorized' })
+    expect(output).toEqual({ statusCode: 401, body: new UnauthorizedError() })
   })
 
   test('should return 200 on success', async () => {
