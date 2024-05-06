@@ -4,7 +4,7 @@ import { AuthenticationMiddlewareGatewayInterface, AuthenticationMiddlewareInput
 export class AuthenticationMiddlewareGateway implements AuthenticationMiddlewareGatewayInterface {
   async getApplicationByAppIdAndSecretKey (input: AuthenticationMiddlewareInput): Promise<AuthenticationMiddlewareOutput | null> {
     const { appId, secretKey } = input
-    const application = prismaClient.applications.findFirst({ where: { appId, secretKey } })
+    const application = await prismaClient.applications.findUnique({ where: { appId, secretKey } })
     return application ?? null
   }
 }

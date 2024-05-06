@@ -1,6 +1,7 @@
 import { forbiddenError, success, unauthorized } from '@/shared/helpers/http.helper'
 import { HttpRequest } from '../controllers/controller.interface'
 import { AuthenticationMiddlewareGatewayInterface } from '../gateways/authentication-middleware/authenticaton-middleware.gateway.interface'
+import { logger } from '@/shared/logger/logger.helper'
 
 export class AuthenticationMiddleware {
   constructor(private readonly gateway: AuthenticationMiddlewareGatewayInterface) {}
@@ -12,8 +13,8 @@ export class AuthenticationMiddleware {
     const { appid, secretkey } = input.headers
 
     const application = await this.gateway.getApplicationByAppIdAndSecretKey({ appId: appid, secretKey: secretkey })
-
     if (!application) {
+      logger.error(`Unauthorized Error: appId: ${appid}, secretkey: ${secretkey}`)
       return unauthorized()
     }
 

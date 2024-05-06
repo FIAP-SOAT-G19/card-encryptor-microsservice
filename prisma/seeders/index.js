@@ -10,7 +10,7 @@ const main = async () => {
         id: randomUUID(),
         appId: 'order_microsservice',
         description: 'Order microsservice',
-        secretKey: '$2a$12$N8KpRrrBKBkFo3jYez.KTOA7nTvlwyuM0sVlzPVdCMhRQzdG0NYFi'
+        secretKey: 'e6cd5db8d02df52e23eb590e59d43cdc'
     }
   })
 }
