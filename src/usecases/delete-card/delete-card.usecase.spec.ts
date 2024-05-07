@@ -2,12 +2,18 @@ import { DeleteCardGatewayInterface } from '@/adapters/gateways/delete-card/dele
 import { mock } from 'jest-mock-extended'
 import { DeleteCardUseCase } from './delete-card.usecase'
 import { InvalidParamError, MissingParamError } from '@/shared/errors'
+import { logger } from '@/shared/logger/logger.helper'
 
 const gateway = mock<DeleteCardGatewayInterface>()
 
 describe('DeleteCardUseCase', () => {
   let sut: DeleteCardUseCase
   let cardId: string
+
+  beforeAll(() => {
+    jest.spyOn(logger, 'info').mockImplementation(() => {})
+    jest.spyOn(logger, 'error').mockImplementation(() => {})
+  })
 
   beforeEach(() => {
     sut = new DeleteCardUseCase(gateway)

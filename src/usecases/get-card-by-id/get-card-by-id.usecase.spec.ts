@@ -2,12 +2,18 @@ import { InvalidParamError, MissingParamError } from '@/shared/errors'
 import { GetCardByIdUseCase } from './get-card-by-id.usecase'
 import { mock } from 'jest-mock-extended'
 import { GetCardByIdGatewayInterface } from '@/adapters/gateways/get-card-by-id/get-card-by-id.gateway.interface'
+import { logger } from '@/shared/logger/logger.helper'
 
 const gateway = mock<GetCardByIdGatewayInterface>()
 
 describe('GetCardByIdUseCase', () => {
   let sut: GetCardByIdUseCase
   let cardId: string
+
+  beforeAll(() => {
+    jest.spyOn(logger, 'info').mockImplementation(() => {})
+    jest.spyOn(logger, 'error').mockImplementation(() => {})
+  })
 
   beforeEach(() => {
     sut = new GetCardByIdUseCase(gateway)

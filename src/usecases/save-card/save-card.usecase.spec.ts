@@ -4,6 +4,7 @@ import { Cryptodapter } from '@/adapters/tools/crypto/crypto.adapter'
 import { mock } from 'jest-mock-extended'
 import MockDate from 'mockdate'
 import { InvalidParamError } from '@/shared/errors'
+import { logger } from '@/shared/logger/logger.helper'
 
 const gateway = mock<SaveCardGatewayInterface>()
 const crypto = mock<Cryptodapter>()
@@ -21,6 +22,8 @@ describe('SaveCardUseCaseInterface', () => {
   })
 
   beforeAll(() => {
+    jest.spyOn(logger, 'info').mockImplementation(() => {})
+    jest.spyOn(logger, 'error').mockImplementation(() => {})
     MockDate.set(new Date())
   })
 
