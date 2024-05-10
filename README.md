@@ -1,7 +1,7 @@
-# 💬 Tech Challenge
+# 💬 Card Encryptor
 
 ## ✳️ Sobre
-O **Tech Challenge** é um projeto de um sistema de autoatendimento de fast food, que é composto por uma série de dispositivos e interfaces que permitem aos clientes selecionar e fazer pedidos sem precisar interagir com um atendente.
+O **Card Encryptor** é um microsserviço responsável por armazenar dados encryptados dos cartões temporariamente que são usados nos pagamentos.
 
 ---
 
@@ -11,7 +11,6 @@ O **Tech Challenge** é um projeto de um sistema de autoatendimento de fast food
 - [PostgreSQL](https://www.postgresql.org/)
 - [Prisma](https://www.prisma.io/)
 - [Jest](https://jestjs.io)
-- [k8s](https://kubernetes.io/pt-br/)
 ---
 
 ## 💻 Clonando o repositório
@@ -19,7 +18,7 @@ O **Tech Challenge** é um projeto de um sistema de autoatendimento de fast food
 - Clone o projeto
 
   ```bash
-  git clone https://github.com/FIAP-SOAT-G19/tech-challenge.git
+  git clone https://github.com/FIAP-SOAT-G19/card-encryptor-microsservice.git
   ````
 ---
 
