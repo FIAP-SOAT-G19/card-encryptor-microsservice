@@ -33,14 +33,13 @@ Existe o arquivo `.env.example` com todas as variáveis utilizadas para rodar o 
 ## ▶️ Executando o projeto
 - Execute os seguintes comandos:
   ```bash
-    kubectl apply -f k8s/db-deployment.yaml
-    kubectl apply -f k8s/api-deployment.yaml
+    kubectl apply -f k8s/api-card-encryptor-deployment.yaml
     kubectl apply -f k8s/metrics.yaml
   ```
 
 - Utilize os comandos abaixo para encaminhar as conexões das portas locais para a portas dos pod's Kubernetes (o segundo comando é opcional)
   ```bash
-    kubectl port-forward service/api-svc 3000:3000 &
+    kubectl port-forward service/api-card-encryptor-svc 3000:3000 &
     kubectl port-forward service/database-svc 5432:5432 &
   ```
 
