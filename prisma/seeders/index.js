@@ -10,7 +10,15 @@ const main = async () => {
         id: randomUUID(),
         appId: 'order_microsservice',
         description: 'Order microsservice',
-        secretKey: '$2a$12$N8KpRrrBKBkFo3jYez.KTOA7nTvlwyuM0sVlzPVdCMhRQzdG0NYFi'
+        secretKey: 'e6cd5db8d02df52e23eb590e59d43cdc'
+    }
+  })
+  await prismaClient.applications.create({
+    data: {
+        id: randomUUID(),
+        appId: 'payment_microsservice',
+        description: 'Payment microsservice',
+        secretKey: 'd8c08ba7cab3184283309449a6884bd1'
     }
   })
 }
