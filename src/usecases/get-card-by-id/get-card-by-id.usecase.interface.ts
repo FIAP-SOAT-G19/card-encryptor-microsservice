@@ -1,3 +1,3 @@
 export interface GetCardByIdUseCaseInterface {
-  execute: (id: string) => Promise<string>
+  execute: (id: string) => Promise<any>
 }
