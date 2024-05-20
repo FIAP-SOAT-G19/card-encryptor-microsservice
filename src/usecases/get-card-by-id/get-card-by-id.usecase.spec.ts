@@ -37,8 +37,8 @@ describe('GetCardByIdUseCase', () => {
     await expect(sut.execute(cardId)).rejects.toThrow(new InvalidParamError('cardId'))
   })
 
-  test('should return a correct v', async () => {
+  test('should return a correct card', async () => {
     const encryptedCard = await sut.execute(cardId)
-    expect(encryptedCard).toBe('anyEncryptedCard')
+    expect(encryptedCard).toEqual({ encryptedCard: 'anyEncryptedCard' })
   })
 })
