@@ -6,7 +6,7 @@ import { logger } from '@/shared/logger/logger.helper'
 
 export class GetCardByIdUseCase implements GetCardByIdUseCaseInterface {
   constructor(private readonly gateway: GetCardByIdGatewayInterface) {}
-  async execute (id: string): Promise<string> {
+  async execute (id: string): Promise<any> {
     if (!isValidString(id)) {
       logger.error('Missing param [cardId]')
       throw new MissingParamError('cardId')
@@ -20,6 +20,6 @@ export class GetCardByIdUseCase implements GetCardByIdUseCaseInterface {
       throw new InvalidParamError('cardId')
     }
 
-    return card.encryptedCard
+    return { encryptedCard: card.encryptedCard }
   }
 }
