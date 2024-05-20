@@ -1,7 +1,7 @@
-import { GetCardByIdUseCaseInterface } from '@/usecases/get-card-by-id/get-card-by-id.usecase.interface'
+import { GetCardByIdUseCaseInterface } from '../../../usecases/get-card-by-id/get-card-by-id.usecase.interface'
 import { ControllerInterface, HttpRequest, HttpResponse } from '../controller.interface'
-import { success } from '@/shared/helpers/http.helper'
-import { handleError } from '@/shared/helpers/error.helper'
+import { success } from '../../../shared/helpers/http.helper'
+import { handleError } from '../../../shared/helpers/error.helper'
 
 export class GetCardByIdController implements ControllerInterface {
   constructor(private readonly getCardByIdUseCase: GetCardByIdUseCaseInterface) {}
