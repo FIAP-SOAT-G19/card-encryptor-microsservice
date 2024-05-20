@@ -1,4 +1,4 @@
-# 💬 Tech Challenge
+# 💬 Card encryptor Microservice
 
 ## ✳️ Sobre
 O **Tech Challenge** é um projeto de um sistema de autoatendimento de fast food, que é composto por uma série de dispositivos e interfaces que permitem aos clientes selecionar e fazer pedidos sem precisar interagir com um atendente.
@@ -19,7 +19,7 @@ O **Tech Challenge** é um projeto de um sistema de autoatendimento de fast food
 - Clone o projeto
 
   ```bash
-  git clone https://github.com/FIAP-SOAT-G19/tech-challenge.git
+  git clone git@github.com:FIAP-SOAT-G19/card-encryptor-microsservice.git
   ````
 ---
 
@@ -28,40 +28,48 @@ Existe o arquivo `.env.example` com todas as variáveis utilizadas para rodar o 
 ---
 
 ## Arquitetura do projeto
-![Arquitetura do Projeto](./assets/images/architecture.jpg)
+![Arquitetura do Projeto](./assets/images/arch-ms.jpeg)
+
+## 🧪 Testes:
+- Evidência cobertura de testes unitários
+![Arquitetura do Projeto](./assets/images/unit-card-encryptor.png)
+
+- Evidência teste BDD
+![Arquitetura do Projeto](./assets/images/bdd-card-encrypt.png)
+  ```bash
+  npm run test:bdd
+  ```
+---
 
 ## ▶️ Executando o projeto
 - Execute os seguintes comandos:
   ```bash
+<<<<<<< Updated upstream
     kubectl apply -f k8s/api-card-encryptor-deployment.yaml
+=======
+    kubectl apply -f k8s/db-registrations-deployment.yaml
+    kubectl apply -f k8s/api-registrations-deployment.yaml
+>>>>>>> Stashed changes
     kubectl apply -f k8s/metrics.yaml
   ```
 
 - Utilize os comandos abaixo para encaminhar as conexões das portas locais para a portas dos pod's Kubernetes (o segundo comando é opcional)
   ```bash
+<<<<<<< Updated upstream
     kubectl port-forward service/api-card-encryptor-svc 3000:3000 &
+=======
+    kubectl port-forward service/api-registrations-svc 3000:3004 &
+>>>>>>> Stashed changes
     kubectl port-forward service/database-svc 5432:5432 &
   ```
 
-- O Backend iniciará em [http://localhost:3000](http://localhost:3000)
+- O Backend iniciará em [http://localhost:3001](http://localhost:3001)
 
 ---
 
-## 🧩 Swagger
-É possível acessar a documentação da API pelo [Swagger da API](http://localhost:3000/api-docs) e simular os endpoints
+<!-- ## ▶️ Vídeo do Projeto
+Link do vídeo no [Youtube](https://youtu.be/TDvxi906vco?si=yY3aulSxq2tg5fiC) -->
 
----
-
-## ▶️ Vídeo do Projeto
-Link do vídeo no [Youtube](https://youtu.be/TDvxi906vco?si=yY3aulSxq2tg5fiC)
-
----
-
-## 🧪 Testes:
-- Rodar todos os testes
-  ```bash
-  npm t
-  ```
 ---
 
 ## 🚀 Commits no projeto
