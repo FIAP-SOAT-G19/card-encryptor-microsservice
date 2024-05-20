@@ -1,7 +1,9 @@
-# 💬 Card encryptor Microservice
+# 💬 Tech Challenge - Card Encryptor Microservice
 
 ## ✳️ Sobre
 O **Tech Challenge** é um projeto de um sistema de autoatendimento de fast food, que é composto por uma série de dispositivos e interfaces que permitem aos clientes selecionar e fazer pedidos sem precisar interagir com um atendente.
+
+O **Card Encryptor** consiste em um serviço para encriptação de dados de cartão de crédito
 
 ---
 
@@ -44,33 +46,19 @@ Existe o arquivo `.env.example` com todas as variáveis utilizadas para rodar o 
 ## ▶️ Executando o projeto
 - Execute os seguintes comandos:
   ```bash
-<<<<<<< Updated upstream
     kubectl apply -f k8s/api-card-encryptor-deployment.yaml
-=======
-    kubectl apply -f k8s/db-registrations-deployment.yaml
-    kubectl apply -f k8s/api-registrations-deployment.yaml
->>>>>>> Stashed changes
     kubectl apply -f k8s/metrics.yaml
   ```
 
 - Utilize os comandos abaixo para encaminhar as conexões das portas locais para a portas dos pod's Kubernetes (o segundo comando é opcional)
   ```bash
-<<<<<<< Updated upstream
     kubectl port-forward service/api-card-encryptor-svc 3000:3000 &
-=======
-    kubectl port-forward service/api-registrations-svc 3000:3004 &
->>>>>>> Stashed changes
-    kubectl port-forward service/database-svc 5432:5432 &
   ```
 
 - O Backend iniciará em [http://localhost:3001](http://localhost:3001)
 
 ---
 
-<!-- ## ▶️ Vídeo do Projeto
-Link do vídeo no [Youtube](https://youtu.be/TDvxi906vco?si=yY3aulSxq2tg5fiC) -->
-
----
 
 ## 🚀 Commits no projeto
 
