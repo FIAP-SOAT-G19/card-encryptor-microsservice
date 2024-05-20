@@ -82,7 +82,7 @@ stringData:
   postgres-user: postgres
   postgres-password: postgres
   postgres-host: card-encryptor.czg2ea2yu0rz.us-east-1.rds.amazonaws.com
-  database-url: postgresql://postgres:postgres@card-encryptor.czg2ea2yu0rz.us-east-1.rds.amazonaws.com:5432/registration?schema=public
+  database-url: postgresql://postgres:postgres@card-encryptor.czg2ea2yu0rz.us-east-1.rds.amazonaws.com:5432/card-encryptor?schema=public
   port: '3002'
 ---
 apiVersion: v1
@@ -96,5 +96,5 @@ spec:
     - protocol: TCP
       port: 3002
       targetPort: 3002
-      nodePort: 30008
+      nodePort: 30002
   type: LoadBalancer
