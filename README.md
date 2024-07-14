@@ -64,7 +64,7 @@ Existe o arquivo `.env.example` com todas as variáveis utilizadas para rodar o 
 
 O projeto possui [husky](https://github.com/typicode/husky) para verificar alguns passos antes de autorizar o commit.
 
-1. Aplicar correções relacionadas à **Lint**;
+1. Aplicar correções relacionadas à **Lint**
 3. Validação da mensagem de commit conforme as regras do [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/);
   - Padrão no desenvolvimento de um card:
   > tipo(#numero_do_card): descrição em inglês (em letras minúsculas)
